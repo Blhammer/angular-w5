@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Dog Facts</h1>
+  <label for="numberOfFacts">Number of Facts:</label>
+  <input
+    type="number"
+    id="numberOfFacts"
+    [(ngModel)]="numberOfFacts"
+    min="1"
+    max="1000"
+  />
+  <button (click)="fetchDogFacts()">Fetch Dog Facts</button>
+
+  <ul *ngIf="dogFacts.length > 0">
+    <li *ngFor="let fact of dogFacts; let i = index">
+      <a [routerLink]="['/details', i]">{{ fact }}</a>
+    </li>
+  </ul>
+</div>
